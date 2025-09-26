@@ -18,6 +18,14 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+VALIDATE() {
+if [ $1 -ne 0 ]; then
+    echo "ERROR: install $2 is failure"
+    exit 1
+else
+    echo "install $? is success"
+fi
+}
 # if package is not found
 dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]; then
