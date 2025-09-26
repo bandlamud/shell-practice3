@@ -23,7 +23,7 @@ else
     echo "installing nginx is success"
 fi
 
-dnf install python3
+dnf install python3 y
 if [ $? -ne 0 ]; then
     echo "installing python3 is failure"
 else
