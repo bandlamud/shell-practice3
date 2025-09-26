@@ -39,3 +39,4 @@ if [ $? -ne 0 ]; then
     VALIDATE $? "PYTHON3"
 else
     echo "python3 alreday installed .. SKIPPING"
+fi
