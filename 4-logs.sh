@@ -16,7 +16,7 @@ SCRIPT_NAME="$( echo $0 | cut -d "." -f1 )"
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOG_FOLDER
-echo "execition of script timing is: $(date)"
+echo "Srcipt execution time is $(date)"
 VALIDATE() {
 if [ $1 -ne 0 ]; then
     echo "ERROR: install $2 is failure"
