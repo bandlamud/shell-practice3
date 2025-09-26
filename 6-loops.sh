@@ -23,7 +23,7 @@ if [ $1 -ne 0 ]; then
     echo "ERROR: installing  $2 is $R FAILURE $N"
     exit 1
 else
-    echo "installing  $2 is $G SUCCESS $Y"
+    echo -e "installing  $2 is $G SUCCESS $Y"
 fi
 }
 
@@ -37,7 +37,7 @@ do
         dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "$package"
     else
-        echo "$package is alredy installed .. $Y SKIPPING $N"
+        echo -e "$package is alredy installed .. $Y SKIPPING $N"
     fi
 
 done
