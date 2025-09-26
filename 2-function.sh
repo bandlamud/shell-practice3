@@ -7,15 +7,14 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-VALIDATE() [
+VALIDATE() {
 if [ $1 -ne 0 ]; then
     echo "ERROR: install $2 is failure"
     exit 1
 else
     echo "install $? is success"
 fi
-
-]
+}
 
 # Install the packae
 dnf install mysql -y
