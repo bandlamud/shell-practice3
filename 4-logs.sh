@@ -8,7 +8,9 @@ N="\e[0m"
 
 LOG_FOLDER="/var/log/shell-script"
 SCRIPT_FILE="$(echo $0 | cut -d "." -f1)"
-LOG_FILE="($LOG_FOLDER/$SCRIPT_FILE.log)"
+LOG_FILE="$LOG_FOLDER/$SCRIPT_FILE.log"
+
+
 mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]; then
