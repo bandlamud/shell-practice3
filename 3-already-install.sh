@@ -35,7 +35,7 @@ fi
 
 #if package is not found
 if [ $? -ne 0 ]; then
-    dnf install python3 y
+    dnf install python3 -y
     VALIDATE $? "PYTHON3"
 else
     echo "python3 alreday installed .. SKIPPING"
