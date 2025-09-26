@@ -29,9 +29,16 @@ fi
 
 for package in $@
 do
+    # if packge is alredy installed or not
+    dnf list installed $package &>>$LOG_FILE
 
-    echo ""package is $package
-
+    #exit statu is 0, alredy installed -ne 0 then install
+    if [ $? -ne 0 ]; then
+        dnf install $package -y &>>$LOG_FILE
+        VALIDATE $? "$package"
+    else
+        echo "$package is alredy installed .. $Y SKIPPING $N"
+    fi
 
 done
 
