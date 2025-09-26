@@ -1,6 +1,10 @@
 #!/bin/bash
 
 USERID=$(id -u)
+R="/e[31m"
+G="/e[32m"
+Y="/e[33m"
+N="/e[0m"
 
 if [ $USERID -ne 0 ]; then
     echo "ERROR:: Run the script with root Privilages"
@@ -22,7 +26,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
     VALIDATE $? "MYSQL"
 else
-    echo "mysql already installed.. SKIPPING "
+    echo "mysql already installed..$Y SKIPPING $N"
 fi
 
 #if package is not found
@@ -30,7 +34,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? "NGINX"
 else
-    echo "nginx already installed...SKIPPING"
+    echo "nginx already installed... $Y SKIPPING $N"
 fi
 
 #if package is not found
@@ -38,5 +42,5 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y
     VALIDATE $? "PYTHON3"
 else
-    echo "python3 alreday installed .. SKIPPING"
+    echo "python3 alreday installed ..$Y SKIPPING $N"
 fi
