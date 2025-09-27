@@ -17,7 +17,6 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-
 VALIDATE() {
 if [ $1 -ne 0 ]; then
     echo "installing $2 is failure"
@@ -28,18 +27,18 @@ fi
 }
 
 # Already  package installed or not
-dnf list installed mysql
+dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install mysql -y
+    dnf install mysql -y &>>$LOG_FILE
     VALIDATE $? "MYSQL"
 else
     echo -e "MYSQL alredy installed ..$Y SKIPPING $N"
 fi
 
 # install nginx servere
-dnf list installed nginx
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install nginx -y
+    dnf install nginx -y &>>$LOG_FILE
     VALIDATE $? "NGINX"
 else
     echo -e "NGINX is alredy installed ..$Y SKIPPING $N"
