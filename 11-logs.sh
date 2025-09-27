@@ -6,7 +6,7 @@ Y="\e[33m"
 N="\e[0m"
 
 USERID=$(id -u)
-
+echo "execution script time is: $(date)"
 LOG_FOLDER="/var/log/shell-script"
 SCRIPT_NAME="$( echo $0 | cut -d "." -f1 )"
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
@@ -32,7 +32,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>>$LOG_FILE
     VALIDATE $? "MYSQL"
 else
-    echo -e "MYSQL alredy installed ..$Y SKIPPING $N"
+    echo -e "MYSQL is alredy installed ..$Y SKIPPING $N"
 fi
 
 # install nginx servere
