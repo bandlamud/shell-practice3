@@ -23,3 +23,4 @@ if [ $? -ne 0 ]; then
     exit 1
 else
     echo " installing nginx is success"
+fi
