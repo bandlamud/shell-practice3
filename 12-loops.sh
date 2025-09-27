@@ -29,14 +29,14 @@ fi
 for package in $@
 do
     # pakage is alredy installed or not
-    dnf list installed $package
+    dnf list installed $package &>>$LOG_FILE
 
     # if exit status is 0 not installed 1 need to install
     if [ $? -ne 0 ]; then
-        dnf install $package -y
+        dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "$package"
     else
-        echo "alredy $package is installed..$Y SKIPPING $N"
+        echo -e "alredy $package is installed..$Y SKIPPING $N"
     fi
 
 
