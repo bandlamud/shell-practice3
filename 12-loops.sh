@@ -33,11 +33,11 @@ do
 
     # if exit status is 0 not installed 1 need to install
     if [ $? -ne 0 ]; then
-        dnf install $package
+        dnf install $package -y
         VALIDATE $? "$package"
     else
         echo "alredy $package is installed..$Y SKIPPING $N"
     fi
-    
+
 
 done
